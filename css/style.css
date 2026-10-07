@@ -1,0 +1,109 @@
+/* ---------- Colors and sizes used everywhere ---------- */
+:root {
+  --text: #1e2b3a;
+  --muted: #5a6877;
+  --accent: #0f766e;
+  --light: #f1f5f4;
+  --line: #d9e1e0;
+}
+
+/* ---------- Basics ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { flex: 1; padding-top: 3rem; padding-bottom: 3rem; }
+
+a { color: var(--accent); }
+
+/* Keeps content from stretching too wide on big screens */
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Header and navigation ---------- */
+.site-header { border-bottom: 1px solid var(--line); }
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;           /* lets the menu drop under the logo on phones */
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--light);
+  border-top: 1px solid var(--line);
+  padding-top: 2.5rem;
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footer-inner p { margin: 0 0 0.25rem; }
+.footer-title { font-weight: 700; }
+
+.footer-links { margin: 0; padding: 0; list-style: none; }
+.footer-links a { text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
+
+.copyright {
+  margin: 2rem 0 0;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Phones: stack the footer in one column ---------- */
+@media (max-width: 700px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+}
